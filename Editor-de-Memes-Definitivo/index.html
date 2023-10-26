@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/76f1588c46.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@700&family=Open+Sans:wght@600&display=swap"
+        rel="stylesheet">
+    <title>Generador de memes</title>
+
+</head>
+
+<body class="flex-container" id="body" data-theme="dark">
+
+    <div class="bigger-container flex-container">
+
+        <header class="flex-container" id="header">
+            <h2>Generador de Memes</h2>
+
+            <div class="container-button flex-container">
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="img-button">
+                    <i class="fa-solid fa-file-image text-size-l"></i>Imagen
+                </button>
+
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="text-button">
+                    <i class="fa-solid fa-font text-size-l"></i>Texto
+                </button>
+
+                <button type="button" class="text-size-l ctrl-btn-inputs" id="dark-button">
+                    <i class="fa-regular fa-lightbulb text-size-l"></i>Modo oscuro
+                </button>
+
+                <button type="button" class="text-size-l ctrl-btn-inputs is-hidden" id="light-button">
+                    <i class="fa-solid fa-lightbulb text-size-l"></i>Modo claro
+                </button>
+            </div>
+        </header>
+
+        <main id="main" class="flex-container">
+            <div class="meme-box flex-container" id="meme-box">
+                <p class="texto-meme top" id="meme-top-text">TOP TEXT</p>
+
+                <div class="meme-img" id="meme-img"></div>
+
+                <p class="texto-meme bottom" id="meme-bottom-text">BOTTOM TEXT</p>
+            </div>
+
+            <button class="boton-descargar flex-container text-size-l" id="download-meme-btn">
+                <i class="fa-solid fa-download text-size-l"></i>
+                Descargar meme
+            </button>
+        </main>
+
+    </div>
+
+
+    <aside class="img-aside" id="img-aside">
+        <button type="button" class="close-aside" id="close-img-aside">
+            <i class="fa-solid fa-xmark text-size-l"></i>
+        </button>
+        <h4>IMAGEN</h4>
+
+        <form>
+
+            <section>
+                <label for="url" class="text-size-s">URL</label>
+                <input type="url" id="url-input" class="text-size-m ctrl-btn-inputs">
+            </section>
+            
+            <section>
+                <label for="fondo" class="text-size-s">FONDO</label>
+
+                <div class="container-color-select flex-container">
+                    <div class="half-color flex-container ctrl-btn-inputs">
+                        <input type="color" class="color-rounded" id="input-color-img" value="#000000">
+                        <span class="text-size-m" id="color-fondo-name">#000000</span>
+                    </div>
+                    <select class="half-color text-size-m ctrl-btn-inputs" id="blend-select">Ninguno
+                        <option value="unset"  class="text-size-m">Ninguno</option>
+                        <option value="lighten"  class="text-size-m">Aclarar</option>
+                        <option value="darken"  class="text-size-m">Oscurecer</option>
+                        <option value="difference"  class="text-size-m">Diferencia</option>
+                        <option value="luminosity"  class="text-size-m">Luminosidad</option>
+                        <option value="multiply"  class="text-size-m">Multiplicar</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="container-filtros flex-container">
+                <p class="text-size-s">FILTROS</p
+                <div> class="filtro">
+                    <label for="brillo" class="text-size-s">BRILLO</label>
+                    <input type="range" id="brillo-input" min="0" max="1" step="0.1" value="1">
+                </div>
+                <div class="filtro">
+                    <label for="opacidad" class="text-size-s">OPACIDAD</label>
+                    <input type="range" id="opacidad-input" min="0" max="1" step="0.1" value="1">
+                </div>
+                <div class="filtro">
+                    <label for="contraste" class="text-size-s">CONTRASTE</label>
+                    <input type="range" id="contraste-input" min="100" max="1000" step="1" value="100">
+                </div>
+                <div class="filtro">
+                    <label for="desenfoque" class="text-size-s">DESENFOQUE</label>
+                    <input type="range" id="desenfoque-input" min="0" max="10" step="0.1" value="0">
+                </div>
+                <div class="filtro">
+                    <label for="grises" class="text-size-s">ESCALA DE GRISES</label>
+                    <input type="range" id="grises-input" min="0" max="100" step="1" value="0">
+                </div>
+                <div class="filtro">
+                    <label for="sepia" class="text-size-s">SEPIA</label>
+                    <input type="range" id="sepia-input" min="0" max="100" step="1" value="0">
+                </div>
+                <div class="filtro">
+                    <label for="hue" class="text-size-s">HUE</label>
+                    <input type="range" id="hue-input" min="0" max="359" step="1" value="0">
+                </div>
+                <div class="filtro">
+                    <label for="saturado" class="text-size-s">SATURADO</label>
+                    <input type="range" id="saturado-input" min="100" max="1000" step="10" value="100">
+                </div>
+                <div class="filtro">
+                    <label for="negativo" class="text-size-s">NEGATIVO</label>
+                    <input type="range" id="negativo-input" min="0" max="1" step="0.1" value="0">
+                </div>
+            </section>
+
+            <input type="reset" value="Reestablecer Filtros" class="text-size-l ctrl-btn-inputs" id="reset-btn">
+        </form>
+
+    </aside>
+
+
+    <aside class="text-aside is-hidden" id="text-aside">
+        
+        <button type="button" class="close-aside" id="close-text-aside">
+            <i class="fa-solid fa-xmark text-size-l"></i>
+        </button>
+        <h4>TEXTO</h4>
+
+        <form>
+
+            <section>
+                <div>
+                    <label for="top-text-input" class="text-size-s">SUPERIOR</label>
+                    <textarea id="top-text-input" class="text-size-m ctrl-btn-inputs"  placeholder="TOP TEXT" maxlength="30"></textarea>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="top-checkbox">
+                    <label for="top-checkbox">Sin texto superior</label>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <label for="bottom-text-input" class="text-size-s">INFERIOR</label>
+                    <textarea placeholder="BOTTOM TEXT" id="bottom-text-input" class="text-size-m ctrl-btn-inputs"  maxlength="30"></textarea>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="bottom-checkbox">
+                    <label for="bottom-checkbox">Sin texto inferior</label>
+                </div>
+            </section>
+
+            <section class="container-fuente">
+                <label for="font-family" class="text-size-s">FUENTE</label>
+                <select id="font-family" class="tipografia text-size-m ctrl-btn-inputs">
+                    <option value="Arial, Helvetica, sans-serif" class="text-size-m">Arial</option>
+                    <option selected value="Arial Black" class="text-size-m">Arial Black</option>
+                    <option value="Andale" class="text-size-m">Andale Mono</option>
+                    <option value="fantasy" class="text-size-m">Fantasy</option>
+                    <option value="Georgia, 'Times New Roman', Times, serif" class="text-size-m">Georgia</option>
+                    <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" class="text-size-m">Impact</option>
+                    <option value="Verdana, Geneva, Tahoma, sans-serif" class="text-size-m">Verdana</option>
+                    <option value="'Times New Roman', Times, serif" class="text-size-m">Times New Roman</option>
+                    <option value="'Courier New', Courier, monospace" class="text-size-m">Courier</option>
+                </select>
+
+                <div class="container-tamaño-alineacion flex-container">
+                    <input type="number" value="40" class="tamaño-tipografia text-size-m ctrl-btn-inputs" id="font-size-input">
+                    <button type="button" class="ctrl-btn-inputs" id="left-align-btn">
+                        <i class="fa-solid fa-align-left text-size-l"></i>
+                    </button>
+                    <button type="button" class="ctrl-btn-inputs" id="center-align-btn">
+                        <i class="fa-solid fa-align-center text-size-l"></i>
+                    </button>
+                    <button type="button" class="ctrl-btn-inputs" id="right-align-btn">
+                        <i class="fa-solid fa-align-right text-size-l"></i>
+                    </button>
+                </div>
+            </section>
+
+            <section>
+                <div class="container-text-colors flex-container">
+                    <div class="half-text-color">
+                        <label for="input-color-text" class="text-size-s">COLOR</label>
+
+                        <div>
+                            <div class="half-text-color flex-container ctrl-btn-inputs">
+                                <input type="color" class="color-rounded half-color" id="input-color-text" value="#000000">
+                                <span class="text-size-m" id="text-color-name">#000000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="half-text-color">
+                        <label for="input-color-bkg-text" class="text-size-s">FONDO</label>
+                        <div>
+                            <div class="half-text-color flex-container ctrl-btn-inputs">
+                                <input type="color" value="#FFFFFF" class="color-rounded half-color" id="input-color-bkg-text">
+                                <span class="text-size-m" id="text-bkg-color-name">#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox-sin-fondo">
+                    <label for="checkbox-sin-fondo">Fondo transparente</label>
+                </div>
+            </section>
+
+            <section>
+                <p class="text-size-s">CONTORNO</p>
+
+                <div class="container-button-contorno flex-container">
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-none">Ninguno</button>
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-white">Claro</button>
+                    <button type="button" class="text-size-m ctrl-btn-inputs" id="contorn-text-black">Oscuro</button>
+                </div>
+            </section>
+
+            <section>
+                <label for="input-spacing" class="text-size-s">ESPACIADO</label>
+                <input type="number" id="input-spacing" value="35" class="text-size-m ctrl-btn-inputs">
+            </section>
+
+            <section>
+                <label for="interlineado" class="text-size-s">INTERLINEADO</label>
+                <select id="interlineado" class="interlineado text-size-m ctrl-btn-inputs">1.2
+                    <option value="0.8" class="text-size-m">0.8</option>
+                    <option value="1" class="text-size-m">1</option>
+                    <option value="1.2" class="text-size-m">1.2</option>
+                    <option value="1.5" class="text-size-m">1.5</option>
+                    <option value="2" class="text-size-m">2</option>
+                    <option value="2.5" class="text-size-m">2.5</option>
+                </select>
+            </section>
+        </form>
+    </aside>
+
+
+    <script src="main.js"></script>
+</body>

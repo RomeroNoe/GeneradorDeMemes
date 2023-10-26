@@ -1,0 +1,336 @@
+[data-theme="light"] {
+    --color-body: #424242;
+    --background-header: #e0e0e0;
+    --background-main: #eeeeee;
+    --background-aside: #fafafa;
+    --bkg-ctrl-btn-inputs: #e0e0e0;
+    --text-ctrl-btn-inputs: #424242;
+    --ctrl-btn-inputs-hover: #bdbdbd;
+    --ctrl-btn-inputs-focus: #bdbdbd;
+}
+[data-theme="dark"] {
+    --color-body: aliceblue;
+    --background-header: #191e2b;
+    --background-main: #30343f;
+    --background-aside: #252935;
+    --bkg-ctrl-btn-inputs: #393e49;
+    --text-ctrl-btn-inputs: aliceblue;
+    --ctrl-btn-inputs-hover: #4E5565;
+    --ctrl-btn-inputs-focus: #4E5565;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    color: var(--color-body);
+}
+h2{
+    font-size: 35rem;
+}
+/*tamaños relativos*/
+.checkbox label{
+    font-size: 10rem;
+}
+.text-size-s{
+    font-size: 12rem;
+}
+.text-size-m{
+    font-size: 13rem;
+}
+.text-size-l{
+    font-size: 15rem;
+}
+
+/*main completo*/
+main{
+    background-color: var(--background-main);
+    min-height: 84vh;
+    flex-direction: column;
+    align-items: center;
+}
+.meme-box{
+    height: 500px;
+    width: 600px;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.texto-meme{ 
+    box-sizing: content-box;
+    font-size: 40rem;
+    font-family: Arial Black;
+    color: #191e2b;
+    background-color: rgb(255, 255, 255);
+    height: 20%;
+    text-align: center;
+    width: 100%;
+    position: static;
+}
+.top{
+    top: 0;
+}
+.bottom{
+    bottom: 0;
+}
+.meme-img{
+    background-color: black;
+    height: 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-grow: 1;
+}
+.boton-descargar{
+    background-color: #2e7d32;
+    border: none;
+    border-radius: 4px;
+    padding: 15px;
+    width: 12%;
+    margin-top: 1%;
+    color: aliceblue;
+    justify-content: center;
+}
+.boton-descargar i{
+    margin-right: 15px;
+}
+.boton-descargar:hover{
+    background-color: #1B5E20;
+}
+
+/*le doy flex a todos mis container y declaro el hidden*/
+.flex-container{
+    display: flex;
+}
+.is-hidden{
+    display: none;
+}
+
+
+/*header*/
+.bigger-container{
+    flex-direction: column;
+    width: 100%;
+}
+header{
+    min-height: 16vh;
+    background-color: var(--background-header);
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.container-button{
+    justify-content: space-around;
+    width: 20%;
+}
+.container-button button{
+    background-color: transparent;
+}
+.container-button i{
+    margin-right: 6px;
+}
+
+
+/*Asides*/
+aside{
+    width: 15%;
+    height: 100%;
+    background-color: var(--background-aside);
+    padding: 30px 15px;
+    overflow: scroll;
+}
+h4{
+    font-size: 18rem;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 20%;
+}
+section{
+    margin-bottom: 10%;
+}
+input, textarea{
+    margin: 4% 0%;
+}
+.close-aside{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--text-ctrl-btn-inputs);
+    margin: 6%;
+}
+.ctrl-btn-inputs{
+    color: var(--text-ctrl-btn-inputs);
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--bkg-ctrl-btn-inputs);
+    border: none;
+    box-sizing: border-box;
+    height: 35px;
+}
+.ctrl-btn-inputs:hover{
+    background-color: var(--ctrl-btn-inputs-hover);
+}
+.ctrl-btn-inputs:focus{
+    outline: none;
+    background-color: var(--ctrl-btn-inputs-focus);
+}
+
+/*texto*/
+.text-aside{
+    position: fixed;
+    right: 0;
+}
+.container-text-colors{
+    width: 100%;
+    justify-content: space-between;
+}
+.half-text-color{
+    width: 90%;
+    align-items: center;
+}
+select{
+    width: 45%;
+    padding-left: 5px;
+}
+.container-tamaño-alineacion{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.tipografia{
+    width: 100%;
+}
+.tamaño-tipografia{
+    width: 50%;
+    padding-left: 5px;
+}
+span{
+    display: block;
+}
+.container-button-contorno{
+    justify-content: space-between;
+}
+.container-button-contorno button{
+    padding: 6%;
+}
+input[id="espaciado"]{
+    width: 100%;
+    padding-left: 5px;
+}
+.interlineado{
+    width: 100%;
+}
+
+
+/*Imagen*/
+.img-aside{
+    position: fixed;
+    right: 0;
+}
+textarea, input[type="url"]{     
+    width: 100%;
+    padding: 0px 5px;
+}
+.container-color-select{
+    width: 100%;
+    justify-content: space-between;
+}
+.half-color{
+    width: 48%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+input[type="color"]{     
+    background-color: transparent;
+    border: none;
+    display: block;
+    width: 18px;
+}
+.color-rounded::-webkit-color-swatch-wrapper,
+.color-rounded::-webkit-color-swatch{
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    border: none;
+}
+.container-filtros{
+    flex-direction: column;
+}
+.filtro{
+    margin-top: 5%;
+}
+input[type=range] {
+    margin: 10px 0;
+    width: 100%;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #5A5D68;
+    border-radius: 50px;
+}
+input[type=range]::-webkit-slider-thumb {
+    height: 200px;
+    width: 50px;
+    border-radius: 50px;
+    margin-top: -6.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #7c7e82;
+}
+input[type="reset"]{
+    width: 80%;
+}
+
+/*Medias Queries*/
+@media (max-width: 1370px){
+    .container-button{
+        width: 40%;
+    }
+    .boton-descargar{
+        width: 15%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .boton-descargar{
+        width: 20%;
+    }
+    aside{
+        width: 20%;
+    } 
+}
+
+@media (max-width: 1000px) {
+    .boton-descargar{
+        width: 30%;
+    }
+    aside{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px;
+    }
+    input, textarea{
+        margin: 1% 0%;
+
+    }
+    section{
+        margin-bottom: 3%;
+    }
+    h4{
+        margin-bottom: 10%;
+    }
+}
+
+@media (max-width: 715px){
+    .container-button{
+        width: 50%;
+    }
+    .boton-descargar{
+        width: 50%;
+    }
+}
