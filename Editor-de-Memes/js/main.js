@@ -145,10 +145,12 @@ checkboxSinFondo.addEventListener('change', ()=>{
 
         memeBottomText.style.backgroundColor = 'transparent'
         memeBottomText.style.position = 'absolute'
-
     } else{
         memeTopText.style.backgroundColor = `${textBkgColorPicker.value}`
+        memeTopText.style.position = 'static'
+
         memeBottomText.style.backgroundColor = `${textBkgColorPicker.value}`
+        memeBottomText.style.position = 'static'
     }
 });
 
@@ -191,7 +193,7 @@ interlineado.addEventListener('change', ()=>{
 
 /*URL*/
 const urlInput = document.getElementById('url-input');
-const memeImg = document.getElementById('meme-img');
+const memeImg = document.getElementById('meme-url');
 
 urlInput.addEventListener('input', ()=>{
     memeImg.style.backgroundImage = `url(${urlInput.value})`;
@@ -209,29 +211,23 @@ colorPicker.addEventListener('input', ()=>{
 
 
 /*Filtros*/
-const brilloInput = document.getElementById('brillo-input')
-const opacidadInput = document.getElementById('opacidad-input')
-const contrasteInput = document.getElementById ('contraste-input')
-const desenfoqueInput = document.getElementById ('desenfoque-input')
-const grisesInput = document.getElementById ('grises-input')
-const sepiaInput = document.getElementById ('sepia-input')
-const hueInput = document.getElementById ('hue-input')
-const saturadoInput = document.getElementById ('saturado-input')
-const negativoInput = document.getElementById ('negativo-input')
 
-const filtros = (e) =>{
-    memeImg.style.filter = `brightness(${brilloInput.value}) opacity(${opacidadInput.value}) contrast(${contrasteInput.value}%) blur(${desenfoqueInput.value}px) grayscale(${grisesInput.value}%) hue-rotate(${hueInput.value}deg) sepia(${sepiaInput.value}%) saturate(${saturadoInput.value}%) invert(${negativoInput.value})`
-};
+const $ = (selector) => document.querySelector(selector);
 
-brilloInput.addEventListener('input', (e)=>filtros(e));
-opacidadInput.addEventListener('input', (e)=>filtros(e));
-contrasteInput.addEventListener('input', (e)=>filtros(e));
-desenfoqueInput.addEventListener('input', (e)=>filtros(e));
-grisesInput.addEventListener('input', (e)=>filtros(e));
-sepiaInput.addEventListener('input', (e)=>filtros(e));
-hueInput.addEventListener('input', (e)=>filtros(e));
-saturadoInput.addEventListener('input', (e)=>filtros(e));
-negativoInput.addEventListener('input', (e)=>filtros(e));
+const filterMeme = () => {
+    $(".meme-img").style.filter =
+        `brightness(${$("#brillo-input").value}) opacity(${$("#opacidad-input").value}) contrast(${$("#contraste-input").value}%) blur(${$("#desenfoque-input").value}px) grayscale(${$("#grises-input").value}%) hue-rotate(${$("#hue-input").value}deg) sepia(${$("#sepia-input").value}%) saturate(${$("#saturado-input").value}%) invert(${$("#negativo-input").value})`;
+}
+
+$("#brillo-input").addEventListener("input", filterMeme);
+$("#opacidad-input").addEventListener("input", filterMeme);
+$("#contraste-input").addEventListener("input", filterMeme);
+$("#desenfoque-input").addEventListener("input", filterMeme);
+$("#grises-input").addEventListener("input", filterMeme);
+$("#sepia-input").addEventListener("input", filterMeme);
+$("#hue-input").addEventListener("input", filterMeme);
+$("#saturado-input").addEventListener("input", filterMeme);
+$("#negativo-input").addEventListener("input", filterMeme);
 
 
 /*Botón para reestablecer filtros*/
@@ -254,7 +250,7 @@ resetBtn.addEventListener ("click", btnResetFilters)
 
 /*Botón de descarga*/
 
-const $ = (selector) => document.querySelector(selector)
+// const $ = (selector) => document.querySelector(selector)
 
 const downloadMeme = () => {
     domtoimage.toBlob($(".meme-box")).then((blob) => {
@@ -262,4 +258,4 @@ const downloadMeme = () => {
     })
 }
 
-$("#downloadMemeBtn").addEventListener("click", downloadMeme)
+$("#download-meme-btn").addEventListener("click", downloadMeme)

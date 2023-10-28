@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/76f1588c46.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +46,7 @@
             <div class="meme-box flex-container" id="meme-box">
                 <p class="texto-meme top" id="meme-top-text">TOP TEXT</p>
 
-                <div class="meme-img" id="meme-img"></div>
+                <div class="meme-img" id="meme-url"></div>
 
                 <p class="texto-meme bottom" id="meme-bottom-text">BOTTOM TEXT</p>
             </div>
@@ -67,12 +69,12 @@
         <form>
 
             <section>
-                <label for="url" class="text-size-s">URL</label>
+                <label for="url-input" class="text-size-s">URL</label>
                 <input type="url" id="url-input" class="text-size-m ctrl-btn-inputs">
             </section>
             
             <section>
-                <label for="fondo" class="text-size-s">FONDO</label>
+                <label for="input-color-img" class="text-size-s">FONDO</label>
 
                 <div class="container-color-select flex-container">
                     <div class="half-color flex-container ctrl-btn-inputs">
@@ -93,39 +95,39 @@
             <section class="container-filtros flex-container">
                 <p class="text-size-s">FILTROS</p
                 <div> class="filtro">
-                    <label for="brillo" class="text-size-s">BRILLO</label>
+                    <label for="brillo-input" class="text-size-s">BRILLO</label>
                     <input type="range" id="brillo-input" min="0" max="1" step="0.1" value="1">
                 </div>
                 <div class="filtro">
-                    <label for="opacidad" class="text-size-s">OPACIDAD</label>
+                    <label for="opacidad-input" class="text-size-s">OPACIDAD</label>
                     <input type="range" id="opacidad-input" min="0" max="1" step="0.1" value="1">
                 </div>
                 <div class="filtro">
-                    <label for="contraste" class="text-size-s">CONTRASTE</label>
+                    <label for="opacidad-input" class="text-size-s">CONTRASTE</label>
                     <input type="range" id="contraste-input" min="100" max="1000" step="1" value="100">
                 </div>
                 <div class="filtro">
-                    <label for="desenfoque" class="text-size-s">DESENFOQUE</label>
+                    <label for="desenfoque-input" class="text-size-s">DESENFOQUE</label>
                     <input type="range" id="desenfoque-input" min="0" max="10" step="0.1" value="0">
                 </div>
                 <div class="filtro">
-                    <label for="grises" class="text-size-s">ESCALA DE GRISES</label>
+                    <label for="grises-input" class="text-size-s">ESCALA DE GRISES</label>
                     <input type="range" id="grises-input" min="0" max="100" step="1" value="0">
                 </div>
                 <div class="filtro">
-                    <label for="sepia" class="text-size-s">SEPIA</label>
+                    <label for="sepia-input" class="text-size-s">SEPIA</label>
                     <input type="range" id="sepia-input" min="0" max="100" step="1" value="0">
                 </div>
                 <div class="filtro">
-                    <label for="hue" class="text-size-s">HUE</label>
+                    <label for="hue-input" class="text-size-s">HUE</label>
                     <input type="range" id="hue-input" min="0" max="359" step="1" value="0">
                 </div>
                 <div class="filtro">
-                    <label for="saturado" class="text-size-s">SATURADO</label>
+                    <label for="saturado-input" class="text-size-s">SATURADO</label>
                     <input type="range" id="saturado-input" min="100" max="1000" step="10" value="100">
                 </div>
                 <div class="filtro">
-                    <label for="negativo" class="text-size-s">NEGATIVO</label>
+                    <label for="negativo-input" class="text-size-s">NEGATIVO</label>
                     <input type="range" id="negativo-input" min="0" max="1" step="0.1" value="0">
                 </div>
             </section>
@@ -134,8 +136,6 @@
         </form>
 
     </aside>
-
-
     <aside class="text-aside is-hidden" id="text-aside">
         
         <button type="button" class="close-aside" id="close-text-aside">
